@@ -1,0 +1,705 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Stylized Post Process Pack Vol.1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ea9eb703-5edc-4b15-8a67-02d9b8883db7" class="page sans"><header><h1 class="page-title">Stylized Post Process Pack Vol.1</h1><p class="page-description"></p></header><div class="page-body"><h2 id="569e2b8b-0dbb-4b51-9389-06905c4d3b74" class="">Welcome to the official wiki of Stylized Post Process Pack Vol.1 made by <em><strong>Niinko</strong></em></h2><p id="ba567f07-b3b0-4d9e-9ddf-af7a045b1808" class="">If you find any bugs or encounter any problems, you can contact me at: <a href="mailto:niinko.kitsune@gmail.com">niinko.kitsune@gmail.com</a></p><p id="ac6b3da6-c0d7-4b75-8d5d-0676c2daa5cd" class="">
+</p><h3 id="ea2930a3-0fa6-4a56-8301-0e37bfd480f2" class="">How to implement Post Process : </h3><p id="19cfd130-2642-4f46-a7c2-bd962a18d888" class="">Firstly, add a <a href="https://docs.unrealengine.com/4.27/en-US/RenderingAndGraphics/PostProcessEffects/#:~:text=The%20PostProcessVolume%20is%20a%20special,to%20manipulate%20post%20processing%20parameters."><span style="border-bottom:0.05em solid">Post Process Volume</span></a><span style="border-bottom:0.05em solid"> : </span></p><figure id="07b7372c-a94a-478d-a248-7abff2863510" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled.png"><img style="width:384px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled.png"/></a></figure><p id="af040f3d-a636-478e-bc30-ea0975b0322b" class="">A 3D wireframed cube appears on the scene, it&#x27;s the Post Process Volume.</p><div id="2ed65dfa-cf9e-4ab9-aa2b-6c4c67ce6156" class="column-list"><div id="8da1e40f-a49f-474c-8925-55eadbf2f3ae" style="width:31.25%" class="column"><figure id="f9ca03c2-0aa3-4a0d-9147-1fbdd3cd53c5" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%201.png"><img style="width:288px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%201.png"/></a></figure></div><div id="120967fb-5975-4b7a-a4d7-13441e610a33" style="width:68.75%" class="column"><ol type="1" id="86e9ce06-714d-4a21-9015-10578d7306fa" class="numbered-list" start="1"><li>Click on the Wireframed cube in the scene or search for it in the Outliner.</li></ol><ol type="1" id="6c03b316-a9da-4c3b-a81b-c170c9872d41" class="numbered-list" start="2"><li>In the details, click on the PostProcessVolume.</li></ol><ol type="1" id="723befc5-a3c9-4c79-b8ab-01efa3429785" class="numbered-list" start="3"><li>In the search bar, type &quot;Material&quot;.</li></ol><ol type="1" id="bf159a8e-59db-4b6d-b372-94ed7a755200" class="numbered-list" start="4"><li>In the Post Process Materials section, click on the &quot;+&quot; button in the Array.</li></ol><ol type="1" id="c373909f-31b5-41b8-ac5c-f75a32de25fe" class="numbered-list" start="5"><li>A &quot;Choose&quot; drop-down panel will appear, click on it and select Asset reference.</li></ol><ol type="1" id="7e926b04-03ef-4ea8-8c50-803e8bfcd481" class="numbered-list" start="6"><li>Click on the drop-down panel labeled &quot;None&quot; and search for &quot;PP_Toon_Inst&quot; or &quot;PP_HandDraw_Inst&quot;.</li></ol><p id="e120b925-e68d-450a-8c39-50c0880d4d11" class="">
+</p><p id="d60720a4-c0a2-4458-8445-96c08e25e63c" class="">Now, enjoy your beautiful world.</p><p id="d7ad948c-7b36-462c-ac6f-93dd39deb95a" class="">
+</p></div></div><p id="1769cd95-9c7c-4fb5-a499-6c1cabcf9ea1" class="">You can add </p><h3 id="2970bd5d-0499-4916-bb2b-df6b2fd4cfff" class="">Variables:</h3><p id="2c4b0a30-6068-4cf2-bc46-3eedb15a9916" class="">Variable will have the same name as in editor, with a preview of the effect, and a small description:</p><ul id="feb50b56-fd06-4bf6-9910-979c141e55a3" class="toggle"><li><details open=""><summary>HAND DRAW</summary><p id="0a3cac7d-f6f6-4149-9a08-1a012eda800c" class=""><strong>Ambiant Occlusion</strong> [bool]<div class="indented"><p id="78363e34-844d-456a-ae1f-00508dbc99fb" class="">Use Ambiant Occlusion</p></div></p><p id="6965408f-53d8-4f12-ac66-2551b10593b4" class=""><strong>Custom Depth</strong> [bool] </p><div id="88a83728-f861-40c4-ac58-a9b2ef64b9c1" class="column-list"><div id="31f4b414-1d76-488f-b7e7-e914f99554b2" style="width:18.75%" class="column"><figure id="6a902531-a061-45b6-92fa-9336d6429519" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"/></a></figure></div><div id="bd7667f6-df4e-43ee-a5e3-6dfdfbb85ee4" style="width:81.25%" class="column"><p id="8b8a60b2-1f0e-4a77-8b8a-51c06de27fae" class="">Enable Post Process only on 3D model on Custom Depth Channel</p><p id="9c905fa4-8662-4eb8-a9dd-d6128b94f99a" class="">
+</p></div></div><p id="154a6bbd-1975-443c-8db8-af9379c27c7d" class=""><strong>Limit Post Process</strong> [bool]<div class="indented"><p id="9534d7cc-88b8-4d6f-ba6f-5dca6685a0be" class="">Does Post Process is limited (Enable if you don’t want skybox to be affected)</p></div></p><p id="40ebd282-72eb-4b0b-93a8-7d50558e46c3" class=""><strong>Limit Post Process Value</strong> [float]</p><div id="ef1d34a8-6271-4ae7-928d-ade7a7022186" class="column-list"><div id="d823574b-05e4-4cb8-a03a-366c18ea216f" style="width:18.75%" class="column"><figure id="05471d53-becb-40f0-9c44-13ed47127495" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"/></a></figure></div><div id="0ebc641d-9d26-4906-a065-1ed2acb07fc3" style="width:81.25%" class="column"><p id="0bbbd047-c4fb-48f4-8dae-989db7adb95a" class="">The distance max of the effect of the post process volume</p><p id="b5ee44f7-1ef4-4c9a-bc39-bbd6044d1598" class="">
+</p></div></div><p id="5d858597-7236-49f8-8701-54f875f06b2a" class=""><strong>Threshold</strong> [float]</p><div id="f96d37e9-1bdd-4bd3-a901-701d2858eb91" class="column-list"><div id="9daf9145-0ab2-4d03-a56a-830f28d9ff29" style="width:18.75%" class="column"><figure id="6844bb67-7029-484d-89f5-a43bccbc95f6" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%204.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%204.png"/></a></figure></div><div id="f41608e1-c493-4332-a155-4b3bfa365063" style="width:81.25%" class="column"><p id="4752b36b-5520-41c8-b85d-3413c49f613c" class="">The threshold between light and shadow zone</p><p id="dcc788c1-1559-441c-abda-11705f713990" class="">
+</p></div></div><p id="8ea3f675-cbac-4fd5-b09b-60f5105c10e7" class=""><strong>Light Blend Amount </strong>[float]</p><div id="36467e5d-14c5-4654-8f3c-7b3991aad7ff" class="column-list"><div id="87cacaef-6cd8-4d67-bdcd-5bad973b507c" style="width:18.75%" class="column"><figure id="de7a405f-3a89-4b6a-beb6-8107ede9a9f3" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%205.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%205.png"/></a></figure></div><div id="adf70900-127a-4642-932d-57184ab69d1b" style="width:81.25%" class="column"><p id="97626c9d-dc10-4d72-bedd-5386b256c2fc" class="">Intensity of light</p><p id="5e5e591f-d61c-43c8-b1cf-5311d491494e" class="">
+</p></div></div><p id="13878cbf-a530-4919-ae80-095bd87fa36c" class=""><strong>Light Tint [Vector3] </strong></p><div id="b99123a2-f335-4073-937e-fdbbc4d58466" class="column-list"><div id="85a4fa97-eb25-4a7e-ac26-3894f0c08364" style="width:18.75%" class="column"><figure id="51ff204b-5397-4af0-b433-6b50f954df3d" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%206.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%206.png"/></a></figure></div><div id="c5c85c86-4df1-40cf-94fb-523c991d3a82" style="width:81.25%" class="column"><p id="cdbde58b-b221-4327-8848-f8fac7aef6a2" class="">The color of the light zone</p><p id="870097b7-0079-4c9c-a5dc-3e4cc8f3406e" class="">
+</p></div></div><p id="28cddb30-46cf-462c-90fe-733f9a9c7c28" class=""><strong>Depth Outlines</strong> [bool] <div class="indented"><p id="0afa3e3f-e710-41bc-a6bb-a8d8b26a94ba" class="">Activate the depth outline</p></div></p><p id="dc908a86-371e-4fd1-a5cb-6792a0842c8f" class="">Normal<strong> Outlines</strong> [bool]<div class="indented"><p id="828b2c50-82b4-4f36-a144-b818161defa1" class="">Activate the Normal outline</p></div></p><p id="e9a760bf-0749-43d9-8595-428f673a0147" class=""><strong>Outlines</strong> [bool] </p><div id="19764bdd-ccee-4bf5-8255-8617eddb894a" class="column-list"><div id="cc70e188-febc-43b2-872d-9b5210a32a43" style="width:18.75%" class="column"><figure id="15241ad4-ffb9-469f-85ff-1d24c224d786" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%207.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%207.png"/></a></figure></div><div id="74ed3c69-de77-4bb4-ad96-78e67ace5ff8" style="width:81.25%" class="column"><p id="e7cce677-dfed-4bde-9192-68766f7493f6" class="">Activate Outlines</p><p id="063f0938-42ab-433e-ba9b-5213bf5212f3" class="">
+</p></div></div><p id="4def3730-50fd-4bf4-b337-9e14aa0b4019" class=""><strong>Outlines Color</strong> [Vector3]</p><div id="5254b7ec-3536-4a19-b178-7f698ce8c76d" class="column-list"><div id="2d08b544-00e1-4d15-a794-6a5ed61018be" style="width:18.75%" class="column"><figure id="9a6f4072-03d1-436a-b978-8ff718dd65cb" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%208.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%208.png"/></a></figure></div><div id="327ff440-1439-4d29-94bf-7816e0a87cc7" style="width:81.25%" class="column"><p id="e7d0a0e3-50a4-4f47-8897-2a230366131f" class="">The color of the outline</p><p id="52b8067a-5073-4095-8bca-c432dbb09f13" class="">
+</p></div></div><p id="0157a4db-b417-4fd2-aacb-2534bc0aa222" class=""><strong>Normal/Depth Line Threshold </strong>[float]<div class="indented"><p id="114da713-f2a9-4aa1-bd18-e74ca6b05a1b" class="">The threshold of outline</p></div></p><p id="aef42e37-f0bb-467c-adb3-fc96f92064ae" class=""><strong>Normal/Depth Line Width </strong>[float]</p><div id="0c3fc09a-e171-4a59-aee3-2d8102775831" class="column-list"><div id="80f7d1cc-5108-43fc-bb4a-2d25e2df06bd" style="width:18.75%" class="column"><figure id="848bb0bc-fe7c-4d52-8e24-314b6888496d" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_165925.png"><img style="width:694px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_165925.png"/></a></figure></div><div id="02b63edc-10b0-4f3b-9b6d-c6c8ff683f11" style="width:81.25%" class="column"><p id="55447f19-c4c6-4101-8cf6-9f354870620f" class="">The width of the outline</p></div></div><p id="1be4816d-ce1c-4f8f-b8d6-4f8be8d3d51b" class=""><strong>Shadow Blend Amount </strong>[float]</p><div id="250bbc1e-cf51-4afc-bf84-5a56ca93e0cb" class="column-list"><div id="cdb6e54b-7674-424c-a5ae-d664c63f07f7" style="width:18.75%" class="column"><figure id="cff45190-f48f-4fe5-83dd-843ae2b6eecf" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%209.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%209.png"/></a></figure></div><div id="a322a34f-f1fe-4aa2-a761-802a3a1675ae" style="width:81.25%" class="column"><p id="19026cab-2ec2-407f-a2ff-f31594b9b429" class="">Shadow intensity</p></div></div><p id="f2eebd4d-afc3-4b9b-803f-037a0fec815e" class=""><strong>Shadow Tint </strong>[Vector3]</p><div id="c5d0e3ca-c21f-4115-a977-a70c28da93ea" class="column-list"><div id="8ce4fc56-99b0-4367-9b38-c83804f8981b" style="width:18.75%" class="column"><figure id="a00e7071-2fbf-4dd2-8b4a-b033f7951e13" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%2010.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%2010.png"/></a></figure></div><div id="6e183dce-8e73-460f-ae92-d5ea7b42dbb7" style="width:81.25%" class="column"><p id="7363a018-0833-4883-acb1-a614bf103dbf" class="">The color of the shadow zone</p></div></div><p id="76257896-59ef-46d2-a459-ce2a435100f9" class="">
+</p></details></li></ul><ul id="f198c3a6-e09b-4ffc-bf23-b3e8fd7b37e4" class="toggle"><li><details open=""><summary>OUTLINE</summary><p id="ffddedb5-fba0-443a-af1e-509c83f73a7d" class=""><strong>Custom Depth</strong> [bool] </p><div id="a2177237-5b2b-41c6-8486-788380d918eb" class="column-list"><div id="4bb6ba3f-7075-472a-bf0e-629af8e2b6f4" style="width:18.75%" class="column"><figure id="e4fcfecb-e546-4179-9c9c-f256ee7d4021" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"/></a></figure></div><div id="14c6cb89-4b45-4e8d-8317-c64a16eeff45" style="width:81.25%" class="column"><p id="01d5858d-36d9-4a2d-995f-c7fcd6286113" class="">Enable Post Process only on 3D model on Custom Depth Channel</p><p id="aead5024-baa4-4762-b7b5-a35cdf1f5477" class="">
+</p></div></div><p id="23f9f69a-8a45-4234-b91d-cd87595a1af2" class=""><strong>Limit Post Process</strong> [bool]<div class="indented"><p id="3d01fb3b-08f5-496c-a231-8b666344fd9e" class="">Does Post Process is limited (Enable if you don’t want skybox to be affected)</p></div></p><p id="7a62c439-909d-4aa2-a54e-ab8b944f5786" class=""><strong>Limit Post Process Value</strong> [float]</p><div id="1a8f77cb-65cd-4835-84c9-1957d1bc149d" class="column-list"><div id="bdc078d2-2095-402f-84ca-17d54b13d63c" style="width:18.75%" class="column"><figure id="134e2363-8245-4547-b899-3c0bde815a10" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"/></a></figure></div><div id="c0aa5597-a875-4c56-8776-9f8d2837fee3" style="width:81.25%" class="column"><p id="dc19528e-a346-4e8e-916b-e7f8fe6f2625" class="">The distance max of the effect of the post process volume</p><p id="17294b75-701c-4758-912f-33026cc9c9ef" class="">
+</p></div></div><p id="cb972396-f360-49b0-898a-0af3a359d791" class=""><strong>Depth Outlines</strong> [bool] <div class="indented"><p id="edd036f8-8709-4f2d-b84e-3862a82d916c" class="">Activate the depth outline</p></div></p><p id="bcfba5e9-b955-419b-aa4f-56f3109d1b90" class="">Normal<strong> Outlines</strong> [bool]<div class="indented"><p id="a42f46ee-e284-4329-9bbb-6b09d99fb28c" class="">Activate the Normal outline</p></div></p><p id="928c74ec-fac6-4ab1-99a1-2f1e9c49d6bd" class=""><strong>Outlines</strong> [bool] </p><div id="610fefa1-d35a-4ebe-bf45-dd60feaf4a6d" class="column-list"><div id="725cf5f9-78e1-4502-b1f0-24342f2ac401" style="width:18.75%" class="column"><figure id="d2a9f2fd-6a7b-40cf-a5e3-c3890685c0d4" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%207.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%207.png"/></a></figure></div><div id="20bb2ff4-d901-40d9-a6b2-8fe7d4ae319d" style="width:81.25%" class="column"><p id="d71597f3-d4a7-4bf9-8945-acacdd9cf9ee" class="">Activate Outlines</p><p id="abba5c7b-0fe1-409f-862b-bf38d000d4d3" class="">
+</p></div></div><p id="f38c7e8a-a118-4d82-a086-54cb26788bc8" class=""><strong>Outlines Color</strong> [Vector3]</p><div id="51ead075-bad4-41ab-96cc-6a2c062e1f61" class="column-list"><div id="e3e35698-0b65-4cb2-806e-766ad1128e25" style="width:18.75%" class="column"><figure id="eae8691b-cd7e-4495-b26f-5b4adc35e2bc" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%208.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%208.png"/></a></figure></div><div id="9877a8a6-4d64-4457-8d83-a9b2e3243181" style="width:81.25%" class="column"><p id="a60bf350-a5ca-4c6b-99af-165c62091e56" class="">The color of the outline</p><p id="033bf292-9505-4a68-8464-a9c9607d5d71" class="">
+</p></div></div><p id="52ddacef-0827-484f-b655-fead89552a16" class=""><strong>Normal/Depth Line Threshold </strong>[float]<div class="indented"><p id="eff8c114-bbd0-4810-984b-d2264143e012" class="">The threshold of outline</p></div></p><p id="5e113b9a-c8e4-4bc3-b377-cece51396c91" class=""><strong>Normal/Depth Line Width </strong>[float]</p><div id="bef574d6-1855-4032-afce-bcae1edc2f2b" class="column-list"><div id="0c5006a5-6e46-4473-8597-ca0407384077" style="width:18.75%" class="column"><figure id="510bc67d-c603-4a79-8047-97e7f9cdd7df" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_165925.png"><img style="width:694px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_165925.png"/></a></figure></div><div id="1565c500-ff03-4ac6-9463-ab48b0d5faa0" style="width:81.25%" class="column"><p id="f36a42d5-b863-468b-8e6a-14c03fe7f30f" class="">The width of the outline</p></div></div></details></li></ul><ul id="4058ce41-7ddc-4575-bcc2-cec7a25fe584" class="toggle"><li><details open=""><summary>TOON</summary><p id="4f1f4db6-e3d2-403d-9800-e22726c6b9ca" class=""><strong>Ambiant Occlusion</strong> [bool]<div class="indented"><p id="28a2dfda-faf2-401a-a55a-06700199937a" class="">Use Ambiant Occlusion</p></div></p><p id="ebe6f2fd-b7e4-49bf-b186-3aaf327a0b4f" class=""><strong>Custom Depth</strong> [bool] </p><div id="dc68d547-0e88-46be-8773-7d4813b5e3e1" class="column-list"><div id="fa6f6477-0e7b-4bdf-a136-49fe9768c2bd" style="width:18.75%" class="column"><figure id="f5119257-2ffa-453e-8908-c88c48a489c8" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"/></a></figure></div><div id="ec319501-b01a-4665-a1d3-f3e6ccd42c3c" style="width:81.25%" class="column"><p id="5dd082a1-ef57-4f61-b33a-241db33fd962" class="">Enable Post Process only on 3D model on Custom Depth Channel</p><p id="5d54e9b3-0058-46d9-a864-a9a9fda88b6f" class="">
+</p></div></div><p id="892832d1-191d-4436-b3cb-67ba7d9fa382" class=""><strong>Limit Post Process</strong> [bool]<div class="indented"><p id="c61f1d02-5fec-43ea-9b6c-6e19ad4ccc83" class="">Does Post Process is limited (Enable if you don’t want skybox to be affected)</p></div></p><p id="b4bf55a7-b90e-4bbf-b3f5-ba8cda8bb497" class=""><strong>Limit Post Process Value</strong> [float]</p><div id="d801e7e6-d07c-4e2d-97d5-5982c9487e65" class="column-list"><div id="970ae54b-f501-453d-b2bf-ff49ba699043" style="width:18.75%" class="column"><figure id="1164dd33-2494-432e-8a0a-f4a8c52f581b" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"/></a></figure></div><div id="0cdf9d2e-a237-46b8-b117-de632f694829" style="width:81.25%" class="column"><p id="81352633-4dbf-4472-9361-c77564ffb4f0" class="">The distance max of the effect of the post process volume</p><p id="92a56327-c924-409c-af7c-5606987b2be1" class="">
+</p></div></div><p id="b74804aa-245f-4a3c-83a4-86976bca2b81" class=""><strong>Threshold</strong> [float]</p><div id="f0cd6ee3-e7fc-48d8-84b0-4a7470cf30ab" class="column-list"><div id="b9261a05-cdb2-496b-8707-c27f3de20133" style="width:18.75%" class="column"><figure id="2d9d8624-668a-4030-befe-f6a6385f1fc0" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%204.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%204.png"/></a></figure></div><div id="e5d5b256-7677-444d-a33c-82ebd51bc10c" style="width:81.25%" class="column"><p id="abf55b4a-9844-4552-8d40-5ab26f8e558a" class="">The threshold between light and shadow zone</p><p id="17fbdc12-10be-4deb-8e76-5f249693aeca" class="">
+</p></div></div><p id="53794ecd-06fa-4c89-bd48-098275896f2a" class=""><strong>Light Blend Amount </strong>[float]</p><div id="8f7379c9-17a6-4947-961c-5e4e1c5b15e0" class="column-list"><div id="42e9bc86-037f-49b7-a5a3-4335cb37ae79" style="width:18.75%" class="column"><figure id="c3aef384-71fa-49ce-aabd-8e26b19ca398" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%205.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%205.png"/></a></figure></div><div id="1e4fb582-9718-489a-bc45-79d1851e4b31" style="width:81.25%" class="column"><p id="092b9e00-b175-4ed9-827d-eb4020b0e676" class="">Intensity of light</p><p id="e5e686ac-1455-4855-ad2a-ee3ef052b919" class="">
+</p></div></div><p id="ea925b50-8cdf-457f-9495-9f1ee29c677b" class=""><strong>Light Tint [Vector3] </strong></p><div id="0ade7a1c-40b7-4fa0-a716-21f2ccffe792" class="column-list"><div id="ddfacacd-4ba7-4982-97ea-8b0321193b2f" style="width:18.75%" class="column"><figure id="8bbd20f3-42a3-4e3d-a99b-1e9bc65dec10" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%206.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%206.png"/></a></figure></div><div id="0db4a037-c0db-4853-96cc-6138d09b6a1e" style="width:81.25%" class="column"><p id="77652f95-1eb2-4947-bf17-4a44945558a8" class="">The color of the light zone</p><p id="d5c62fb4-f23e-4426-92c0-9efad0de4651" class="">
+</p></div></div><p id="f0678f64-a937-45ef-a816-78d8a2266e67" class=""><strong>Shadow Blend Amount </strong>[float]</p><div id="9ab988a7-a176-4e51-a918-548b4f4a7b1f" class="column-list"><div id="49bf2671-d0e4-4c0a-a3f1-feadc3080447" style="width:18.75%" class="column"><figure id="7815bbc2-063b-4f48-806d-89234e928d1b" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%209.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%209.png"/></a></figure></div><div id="9028a146-53f3-471a-9013-7e0c72e5e088" style="width:81.25%" class="column"><p id="a3313b3b-c4d2-4108-bb2a-03ee4d937e95" class="">Shadow intensity</p></div></div><p id="9dd30d0d-2e80-41e4-9e94-cc1ca5eb8e7e" class=""><strong>Shadow Tint </strong>[Vector3]</p><div id="9b8f16c9-ebba-4da2-bc73-1a29cb67c253" class="column-list"><div id="fb26bb3d-0526-48b8-b423-7de3d08dcac6" style="width:18.75%" class="column"><figure id="e2cfba34-ccb7-4eab-a4b7-86ce3fd88377" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%2010.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%2010.png"/></a></figure></div><div id="82140739-2de2-4e91-af64-127e0e5b72f0" style="width:81.25%" class="column"><p id="62724e5e-054c-4453-9667-cd4576f7d883" class="">The color of the shadow zone</p></div></div><p id="ce24b568-9415-4a11-9fb2-9531c1e9d110" class="">
+</p></details></li></ul><ul id="d731369a-0e5c-4ce7-bb67-7c24cb772f10" class="toggle"><li><details open=""><summary>PIXELATE</summary><p id="a7364cde-fd7f-483a-a703-0539d99ecf58" class=""><strong>Custom Depth</strong> [bool] </p><div id="d62a8c5d-7805-4e0f-8eaa-b3c6b64d43bc" class="column-list"><div id="44e1d134-efa1-4a45-8ab9-f2cb62092d01" style="width:18.75%" class="column"><figure id="3121846e-52e8-403e-b0df-77243403c524" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"/></a></figure></div><div id="93e6b4b2-d4a8-4291-ae67-5a66b8ef7b29" style="width:81.25%" class="column"><p id="321d4ce8-a070-4aff-bd84-07722268ee2f" class="">Enable Post Process only on 3D model on Custom Depth Channel</p><p id="76127235-95ee-4f92-8e79-9775112cf363" class="">
+</p></div></div><p id="c7889156-be60-4d26-bdb4-5882cb853226" class=""><strong>Limit Post Process</strong> [bool]<div class="indented"><p id="ee194749-7a4f-4afe-9d0d-c5b6e348dca0" class="">Does Post Process is limited (Enable if you don’t want skybox to be affected)</p></div></p><p id="acc59720-8134-4b90-b92b-f78a7c2d3825" class=""><strong>Limit Post Process Value</strong> [float]</p><div id="02c90c78-6c86-4e60-9c42-6da588333a97" class="column-list"><div id="18fc6d43-2e16-49f1-a360-213f35188faf" style="width:18.75%" class="column"><figure id="f99be31a-ba42-44d7-bacd-67563f45d1e8" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"/></a></figure></div><div id="7a33b55e-3e64-44fc-be26-de0abc19bccd" style="width:81.25%" class="column"><p id="c526d45d-4c86-4830-80e3-058b7794d5d5" class="">The distance max of the effect of the post process volume</p><p id="6ce2ce99-aa03-45fe-a34e-190be279d637" class="">
+</p></div></div><p id="d1d29603-ea6a-4fca-9c58-a2801432e3aa" class=""><strong>Pixel Size</strong> [float]</p><div id="fc99a652-f02c-4094-9492-2d95fbc8c34f" class="column-list"><div id="e81181e5-1943-4a1a-ab23-5e75c8db7759" style="width:18.75%" class="column"><figure id="52e1dc5c-e32a-4124-ad8b-a59803217558" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_171509.png"><img style="width:503px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_171509.png"/></a></figure></div><div id="9a15347b-adc3-46b9-94db-aada403336da" style="width:81.25%" class="column"><p id="74664000-b7d0-45b6-bef5-0f17e57d93df" class="">Pixel Size</p></div></div><p id="64490fd5-9d66-49df-9f12-ad50e2f625bd" class="">
+</p></details></li></ul><ul id="1e0a2cf1-5faa-428d-9647-f33f04b5f731" class="toggle"><li><details open=""><summary>HALF TONE</summary><p id="5da96803-ec30-4f6b-84bf-55ffc6dbc96f" class=""><strong>Custom Depth</strong> [bool] </p><div id="b4475e72-73b3-44ae-b805-6e5b39a8db57" class="column-list"><div id="6b4b855c-f009-4186-acf5-440678d71b1a" style="width:18.75%" class="column"><figure id="8262da63-ca91-4219-98e8-bf99752ef5b6" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%202.png"/></a></figure></div><div id="97bcd487-3598-44cd-8ec0-31d12932f3ca" style="width:81.25%" class="column"><p id="64916e92-49b7-498b-8796-14162ded76cc" class="">Enable Post Process only on 3D model on Custom Depth Channel</p><p id="1689b81f-eb59-41c6-acc9-c29655030c0b" class="">
+</p></div></div><p id="88fef136-1b6b-4add-85ed-c89fd22c7b47" class=""><strong>Limit Post Process</strong> [bool]<div class="indented"><p id="1e19d019-cae6-46d7-9d6d-4e3062b38f6d" class="">Does Post Process is limited (Enable if you don’t want skybox to be affected)</p></div></p><p id="deaf29fe-1e39-4fd1-9861-3b3e616a2b5f" class=""><strong>Limit Post Process Value</strong> [float]</p><div id="e143ee8d-08f8-4d4b-940d-94016c551678" class="column-list"><div id="f53566e5-33f6-4349-b01b-825a913ea822" style="width:18.75%" class="column"><figure id="a79c79c8-5f48-4236-802b-c268cc71fe44" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"><img style="width:192px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Untitled%203.png"/></a></figure></div><div id="3c89aa22-2d63-4d44-bd53-2247950c3f8d" style="width:81.25%" class="column"><p id="0aaee687-c455-411d-b482-e739f05fd8c5" class="">The distance max of the effect of the post process volume</p><p id="70799c63-9782-4579-9482-d62259cd3c59" class="">
+</p></div></div><p id="e1d8f67b-db81-4480-848b-6696b79aca46" class="">Amount of Color [float]</p><div id="f84d72e2-ca4b-46e6-8c2f-1051cde1526f" class="column-list"><div id="5ebdbb2d-3f62-46cd-8ae0-63907775459d" style="width:18.75%" class="column"><figure id="58eca3f6-0bbe-4d81-9056-f4612a94de0a" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_172811.png"><img style="width:466px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_172811.png"/></a></figure></div><div id="9a382d56-6238-40f0-bf11-d7b47f58ca7c" style="width:81.25%" class="column"><p id="a493051f-1ca0-4396-9ec8-5469335305ea" class="">How many color shade will be used</p><p id="ef254fee-4f4e-4b97-8c6c-503711d04cb5" class="">
+</p></div></div><p id="5da30f6a-0820-44f9-9f97-d4dfa34ec4d0" class="">Dot Amount [float]</p><div id="e269c629-9520-449f-9709-caa4bd68dfee" class="column-list"><div id="9a3a000c-e391-4ebe-aea1-1f6e748d25dd" style="width:18.75%" class="column"><figure id="80ac4e01-7073-49ff-a4d4-9e81ecdf5f45" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173511.png"><img style="width:391px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173511.png"/></a></figure></div><div id="97dea3c5-ac97-45b4-a268-b8c899240a02" style="width:81.25%" class="column"><p id="2f5c2a05-3084-4ef5-85ce-9660ede7fe7e" class="">The number of dot</p><p id="03cc7389-2986-42f3-b179-6f2623606bfd" class="">
+</p></div></div><p id="e9c33088-57ac-4ffc-84f6-8023728021de" class="">Dot Sharpness [float]</p><div id="b45dad38-2025-46ed-a9a3-a0363420528e" class="column-list"><div id="d1f141bf-6efc-464b-960b-9c16bb1977fc" style="width:18.75%" class="column"><figure id="c85bbbd5-1af1-4535-a0be-55a1f667e89e" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173347.png"><img style="width:454px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173347.png"/></a></figure></div><div id="3e5b9eff-94d8-4844-9f5e-9ef48d753ceb" style="width:81.25%" class="column"><p id="4410b3c4-2cf2-4adb-b698-f35b61f300dc" class="">How sharp the dot is</p></div></div><p id="07f7c174-25ec-4f26-9bfd-7b41fef17f1e" class="">Dot Size [float]</p><div id="02a96a80-dfa8-4bef-b822-8dfc00ec8062" class="column-list"><div id="16851929-b9a1-489a-a96c-fbc003daae2c" style="width:18.75%" class="column"><figure id="db1cdc7f-072b-45ee-bacf-0a241c0ebccf" class="image" style="text-align:left"><a href="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173728.png"><img style="width:345px" src="Stylized%20Post%20Process%20Pack%20Vol%201%20ea9eb7035edc4b158a6702d9b8883db7/Capture_dcran_2024-01-03_173728.png"/></a></figure></div><div id="6846eec8-4d61-4ffb-b0d3-f632462db53b" style="width:81.25%" class="column"><p id="ebb8276a-0043-4feb-9175-79352371a872" class="">Dot size</p><p id="4f3ad341-816d-4928-b187-0cb65028a667" class="">
+</p></div></div></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
